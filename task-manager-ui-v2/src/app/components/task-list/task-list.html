@@ -1,0 +1,45 @@
+<h1>Task Manager - Docker Test 123</h1>
+
+<p>Count = {{ tasks.length }}</p>
+
+<pre>{{ tasks | json }}</pre>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Priority</th>
+      <th>Due Date</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <tr *ngFor="let task of tasks">
+    <td>{{ task.id }}</td>
+    <td>{{ task.title }}</td>
+    <td>{{ task.description }}</td>
+    <td>{{ task.priority }}</td>
+    <td>{{ task.dueDate }}</td>
+    <td>{{ task.status }}</td>
+    <td>
+	  <button [routerLink]="['/tasks/edit', task.id]">
+		Edit
+	  </button>
+
+	  <button (click)="toggleStatus(task.id)">
+		{{ task.status === 'Todo' ? 'Done' : 'Undo' }}
+	  </button>
+
+	  <button (click)="deleteTask(task.id)">
+		Delete
+	  </button>
+	</td>
+  </tr>
+  </tbody>
+</table>
+
+<p>Total Tasks: {{ tasks.length }}</p>
