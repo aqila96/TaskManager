@@ -25,3 +25,22 @@ Angular
 docker build -t taskmanager-ui .
 
 docker run -d -p 4200:80 taskmanager-ui
+
+
+Task Manager - Setup & Run Guide
+Prerequisites
+
+Install the following:
+.NET 8 SDK
+Visual Studio 2022
+SQL Server
+Node.js
+Angular CLI
+Docker Desktop (optional)
+
+1. Clone the Repository
+2. Database setup
+3. Run backend API
+4. Login credentials
+5. Run Angular Frontend
+6. Run using Docker
