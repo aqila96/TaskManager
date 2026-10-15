@@ -21,22 +21,17 @@ export class TaskListComponent implements OnInit {
   }
 
   loadTasks(): void {
-    this.taskService.getTasks()
-      .subscribe({
-        next: (data: any[]) => {
-
-          console.log('TASKS:', data);
-
-          this.tasks = [...data];
-
-          console.log('COUNT:', this.tasks.length);
-        },
-
-        error: (err) => {
-          console.error(err);
-        }
-      });
+  this.taskService.getTasks().subscribe({
+  next: (response) => {
+    console.log('RESPONSE:', response);
+    this.tasks = response;
+    console.log('COUNT:', this.tasks.length);
+  },
+  error: (err) => {
+    console.error(err);
   }
+});
+}
 
   deleteTask(id: number): void {
 
